@@ -1,7 +1,43 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Register = () => {
+  const [error, setError] = useState("");
+  const { createUser } = useContext(AuthContext);
+
+  const handleRegister = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
+    console.log(name, email, password, photo);
+
+    if (!name) {
+      setError("You must need to add your name");
+    }
+    if (password.length <= 0 || email.length <= 0) {
+      setError("You must need to provide a valid email and password");
+      return;
+    }
+    if (password.length < 6) {
+      setError("password must be at least 6 characters");
+      return;
+    }
+
+    createUser(email, password)
+      .then((result) => {
+        const currentUser = result.user;
+        console.log(currentUser);
+        form.reset();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -10,7 +46,7 @@ const Register = () => {
             <h1 className="text-5xl font-bold">Register Here!!!</h1>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <div className="card-body">
+            <form onSubmit={handleRegister} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -54,19 +90,22 @@ const Register = () => {
                   placeholder="photo url"
                   className="input input-bordered"
                 />
-                <label className="label">
-                  <a href="#" className="label-text-alt text-sm">
+                <label className="label mb-5">
+                  <button href="#" className="label-text-alt text-sm">
                     Already have an account?{" "}
                     <Link to="/login">
                       <span className="link">Login</span>
                     </Link>
-                  </a>
+                  </button>
                 </label>
+                <div>
+                  <p className="text-error">{error}</p>
+                </div>
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>

@@ -32,12 +32,12 @@ const Login = () => {
                 className="input input-bordered"
               />
               <label className="label">
-                <a href="#" className="label-text-alt text-sm">
+                <button href="#" className="label-text-alt text-sm">
                   New to RannaGhor?{" "}
                   <Link to="/register">
                     <span className="link">Register</span>
                   </Link>
-                </a>
+                </button>
               </label>
             </div>
             <div className="form-control mt-6">
@@ -56,7 +56,7 @@ const Login = () => {
                   width="16"
                   height="16"
                   fill="currentColor"
-                  class="bi bi-google"
+                  className="bi bi-google"
                   viewBox="0 0 16 16"
                 >
                   {" "}

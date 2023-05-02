@@ -5,7 +5,9 @@ const Header = () => {
   return (
     <div className="navbar bg-primary text-primary-content flex justify-between">
       <Link to="/">
-        <a className="btn btn-ghost normal-case text-3xl">RannaGhor</a>
+        <button className="btn btn-ghost normal-case text-3xl">
+          RannaGhor
+        </button>
       </Link>
       <div>
         <Link to="/" className="btn btn-ghost normal-case text-xl">
