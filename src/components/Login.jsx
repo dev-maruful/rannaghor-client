@@ -1,7 +1,41 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
+  const [error, setError] = useState("");
+  const { login, loginWithGoogle } = useContext(AuthContext);
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    setError("");
+
+    login(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        form.reset();
+      })
+      .catch((error) => {
+        setError(error.code);
+      });
+  };
+
+  const googleLogin = () => {
+    loginWithGoogle()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        setError("");
+      })
+      .catch((error) => {
+        setError(error.code);
+      });
+  };
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col">
@@ -9,7 +43,7 @@ const Login = () => {
           <h1 className="text-5xl font-bold">Login now!</h1>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <div className="card-body">
+          <form onSubmit={handleLogin} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -31,20 +65,24 @@ const Login = () => {
                 placeholder="password"
                 className="input input-bordered"
               />
-              <label className="label">
-                <button href="#" className="label-text-alt text-sm">
+              <label className={`label ${error && "mb-5"}`}>
+                <button className="label-text-alt text-sm">
                   New to RannaGhor?{" "}
                   <Link to="/register">
                     <span className="link">Register</span>
                   </Link>
                 </button>
               </label>
+              <div className="text-center text-error">
+                <p>{error}</p>
+              </div>
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
             </div>
             <div className="text-center">
               <button
+                onClick={googleLogin}
                 className="inline-flex items-center gap-2 rounded border-2 border-[#4285F4] bg-[#4285F4] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-transparent hover:text-[#4285F4] focus:outline-none focus:ring active:opacity-75"
                 href="/github"
                 target="_blank"
@@ -86,7 +124,7 @@ const Login = () => {
                 </svg>
               </button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

@@ -91,8 +91,8 @@ const Register = () => {
                   placeholder="photo url"
                   className="input input-bordered"
                 />
-                <label className="label mb-5">
-                  <button href="#" className="label-text-alt text-sm">
+                <label className={`label ${error && "mb-5"}`}>
+                  <button className="label-text-alt text-sm">
                     Already have an account?{" "}
                     <Link to="/login">
                       <span className="link">Login</span>
