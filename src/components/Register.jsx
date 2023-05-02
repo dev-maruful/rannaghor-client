@@ -17,6 +17,7 @@ const Register = () => {
 
     if (!name) {
       setError("You must need to add your name");
+      return;
     }
     if (password.length <= 0 || email.length <= 0) {
       setError("You must need to provide a valid email and password");
