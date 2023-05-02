@@ -4,7 +4,7 @@ import SingleChef from "./SingleChef";
 const ChefData = ({ chefData }) => {
   console.log(chefData);
   return (
-    <div className="mb-10">
+    <div className="mb-20">
       <h2 className="text-center text-4xl font-extrabold mb-10">
         Our Dedicated Chefs!!!
       </h2>
