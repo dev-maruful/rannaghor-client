@@ -1,5 +1,6 @@
 import React from "react";
-import { FaBullseye } from "react-icons/fa";
+import { FaArrowRight, FaBullseye } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const SingleChef = ({ singleChefData }) => {
   const {
@@ -28,9 +29,12 @@ const SingleChef = ({ singleChefData }) => {
         <p className="flex items-center gap-2 text-base font-medium mb-5">
           <FaBullseye></FaBullseye> Likes : {likes}
         </p>
-        <button className="btn btn-outline btn-error text-lg">
-          View Recipes
-        </button>
+        <Link to="/chefrecipes">
+          <button className="btn btn-outline btn-error text-lg">
+            <span className="mr-2">View Recipes</span>{" "}
+            <FaArrowRight></FaArrowRight>
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import Banner from "./Banner";
 import ChefData from "./ChefData";
 import FeaturedFoods from "./FeaturedFoods";
+import Partners from "./Partners";
 
 const Home = () => {
   const [chefData, setChefData] = useState(null);
   const [featuredFoods, setFeaturedFoods] = useState(null);
+  const [partners, setPartners] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:5000/chefdata")
@@ -27,11 +29,23 @@ const Home = () => {
       });
   }, []);
 
+  useEffect(() => {
+    fetch("http://localhost:5000/partners")
+      .then((res) => res.json())
+      .then((data) => {
+        setPartners(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <div>
       <Banner></Banner>
       <ChefData chefData={chefData}></ChefData>
       <FeaturedFoods featuredFoods={featuredFoods}></FeaturedFoods>
+      <Partners partners={partners}></Partners>
     </div>
   );
 };

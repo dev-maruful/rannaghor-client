@@ -1,4 +1,5 @@
 import React from "react";
+import { FaArrowRight } from "react-icons/fa";
 
 const Banner = () => {
   return (
@@ -9,12 +10,15 @@ const Banner = () => {
             <h1 className="text-5xl font-bold">
               Your One-Stop Destination for Recipe Inspiration!
             </h1>
-            <p className="py-6">
+            <p className="py-6 text-lg">
               Explore a World of Flavors, Techniques, and Ingredients to Elevate
               Your Cooking Game and Transform Every Meal into a Feast for the
               Senses, Whether You're a Novice or a Master in the Kitchen!
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <button className="btn btn-outline btn-error text-xl">
+              <span className="mr-2">Get Started</span>{" "}
+              <FaArrowRight></FaArrowRight>
+            </button>
           </div>
           <div className="flex-1">
             <img

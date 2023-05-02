@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="navbar bg-primary text-primary-content flex justify-between">
+    <div className="navbar bg-[#DAF7A6] text-primary-content flex justify-between">
       <Link to="/">
         <button className="btn btn-ghost normal-case text-3xl">
           RannaGhor
@@ -16,7 +16,7 @@ const Header = () => {
         <Link to="/blog" className="btn btn-ghost normal-case text-xl">
           Blog
         </Link>
-        <button className="btn btn-outline btn-secondary">
+        <button className="btn btn-outline btn-error">
           <Link to="/login" className="normal-case text-xl">
             Login
           </Link>

@@ -3,11 +3,11 @@ import SingleFood from "./SingleFood";
 
 const FeaturedFoods = ({ featuredFoods }) => {
   return (
-    <div className="mb-20">
+    <div className="mb-36">
       <h2 className="text-center text-4xl font-extrabold mb-10">
-        Our Featured Recipes!!!
+        Our Featured Recipes
       </h2>
-      <div className="max-w-7xl mx-auto grid grid-cols-3 gap-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-3 gap-5">
         {featuredFoods?.map((singleFood) => (
           <SingleFood key={singleFood.id} singleFood={singleFood}></SingleFood>
         ))}
