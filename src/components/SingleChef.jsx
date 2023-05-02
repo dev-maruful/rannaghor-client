@@ -29,7 +29,7 @@ const SingleChef = ({ singleChefData }) => {
         <p className="flex items-center gap-2 text-base font-medium mb-5">
           <FaBullseye></FaBullseye> Likes : {likes}
         </p>
-        <Link to="/chefrecipes">
+        <Link to={`/chefrecipes/${id}`}>
           <button className="btn btn-outline btn-error text-lg">
             <span className="mr-2">View Recipes</span>{" "}
             <FaArrowRight></FaArrowRight>

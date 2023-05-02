@@ -5,9 +5,9 @@ import FeaturedFoods from "./FeaturedFoods";
 import Partners from "./Partners";
 
 const Home = () => {
-  const [chefData, setChefData] = useState(null);
-  const [featuredFoods, setFeaturedFoods] = useState(null);
-  const [partners, setPartners] = useState(null);
+  const [chefData, setChefData] = useState([]);
+  const [featuredFoods, setFeaturedFoods] = useState([]);
+  const [partners, setPartners] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:5000/chefdata")
