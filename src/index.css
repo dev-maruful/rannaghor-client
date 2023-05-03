@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .active {
-    @apply text-error
+    @apply text-error font-bold
 }

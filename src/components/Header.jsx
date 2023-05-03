@@ -4,30 +4,36 @@ import { Link, NavLink } from "react-router-dom";
 const Header = () => {
   return (
     <div className="navbar max-w-7xl md:mx-auto rounded-b-lg py-5 bg-[#DAF7A6] text-primary-content flex flex-col md:flex-row justify-between">
-      <Link to="/">
-        <button className="btn btn-ghost normal-case text-3xl">
-          RannaGhor
-        </button>
-      </Link>
+      <div className="flex flex-col md:flex-row">
+        <img className="w-16" src="/public/logo.png" alt="" />
+        <Link to="/">
+          <button className="btn btn-ghost normal-case text-3xl font-extrabold">
+            RannaGhor
+          </button>
+        </Link>
+      </div>
       <div>
         <NavLink
           to="/"
-          className={`btn btn-ghost normal-case text-xl ${({ isActive }) =>
-            isActive ? "active" : ""}`}
+          className={`btn btn-ghost normal-case text-xl font-medium ${({
+            isActive,
+          }) => (isActive ? "active" : "")}`}
         >
           Home
         </NavLink>
         <NavLink
           to="/blog"
-          className={`btn btn-ghost normal-case text-xl ${({ isActive }) =>
-            isActive ? "active" : ""}`}
+          className={`btn btn-ghost normal-case text-xl font-medium ${({
+            isActive,
+          }) => (isActive ? "active" : "")}`}
         >
           Blog
         </NavLink>
         <NavLink
           to="/login"
-          className={`btn btn-ghost normal-case text-xl ${({ isActive }) =>
-            isActive ? "active" : ""}`}
+          className={`btn btn-ghost normal-case text-xl font-medium ${({
+            isActive,
+          }) => (isActive ? "active" : "")}`}
         >
           Login
         </NavLink>

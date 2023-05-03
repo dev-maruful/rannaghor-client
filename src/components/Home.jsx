@@ -41,7 +41,7 @@ const Home = () => {
       });
   }, []);
 
-  if (!chefData && !featuredFoods && !partners) {
+  if (!chefData || !featuredFoods || !partners) {
     return <LoadingSpinner></LoadingSpinner>;
   }
 
