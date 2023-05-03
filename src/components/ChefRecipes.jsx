@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { FaArrowAltCircleDown } from "react-icons/fa";
+import {
+  FaArrowAltCircleDown,
+  FaBomb,
+  FaCookie,
+  FaRegBookmark,
+  FaRegStar,
+  FaStar,
+} from "react-icons/fa";
+import Rating from "react-rating";
 import { useParams } from "react-router-dom";
 
 const ChefRecipes = () => {
@@ -24,16 +32,7 @@ const ChefRecipes = () => {
     setSingleChefData(singleChef);
   }, [allChefData]);
 
-  // const {
-  //   chef_name,
-  //   chef_picture,
-  //   likes,
-  //   number_of_recipes,
-  //   recipes,
-  //   years_of_experience,
-  // } = singleChefData;
-
-  console.log(singleChefData?.recipes);
+  console.log(singleChefData?.recipes?.[0]);
 
   return (
     <div>
@@ -93,24 +92,261 @@ const ChefRecipes = () => {
 
       {singleChefData && (
         <h2 className="text-4xl font-bold text-center mb-5">
-          Here is some famous recipes of chef{" "}
+          Here are some famous recipes of chef{" "}
           <span className="text-error">{singleChefData.chef_name}</span>
         </h2>
       )}
       {/* recipe section start */}
-      <div className="card w-[1100px] mx-auto lg:card-side bg-base-100 shadow-xl">
-        <figure>
-          {/* {singleChefData && (
-            <img src={singleChefData?.recipes[0].recipe_photo} alt="Album" />
-          )} */}
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">New album is released!</h2>
-          <p>Click the button to listen on Spotiwhy app.</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Listen</button>
+      {/* first recipe */}
+      <div className="card w-[1100px] mx-auto lg:card-side bg-base-100 shadow-xl flex mb-3">
+        <div className="card-body flex-1">
+          <h2 className="card-title text-2xl font-semibold">
+            {singleChefData?.recipes?.[0].recipe_name}
+          </h2>
+          <h3 className="text-lg font-medium">Ingredients :</h3>
+          {/* ingredients */}
+          <ul className="mb-3">
+            <li className="flex items-center gap-2">
+              <FaBomb></FaBomb>{" "}
+              <span>{singleChefData?.recipes?.[0].ingredients.first}</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <FaBomb></FaBomb>{" "}
+              <span>{singleChefData?.recipes?.[0].ingredients.second}</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <FaBomb></FaBomb>{" "}
+              <span>{singleChefData?.recipes?.[0].ingredients.third}</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <FaBomb></FaBomb>{" "}
+              <span>{singleChefData?.recipes?.[0].ingredients.fourth}</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <FaBomb></FaBomb>{" "}
+              <span>{singleChefData?.recipes?.[0].ingredients.fifth}</span>
+            </li>
+            {singleChefData?.recipes?.[0].ingredients.sixth && (
+              <li className="flex items-center gap-2">
+                <FaBomb></FaBomb>{" "}
+                <span>{singleChefData?.recipes?.[0].ingredients.sixth}</span>
+              </li>
+            )}
+            {singleChefData?.recipes?.[0].ingredients.seventh && (
+              <li className="flex items-center gap-2">
+                <FaBomb></FaBomb>{" "}
+                <span>{singleChefData?.recipes?.[0].ingredients.seventh}</span>
+              </li>
+            )}
+            {singleChefData?.recipes?.[0].ingredients.eighth && (
+              <li className="flex items-center gap-2">
+                <FaBomb></FaBomb>{" "}
+                <span>{singleChefData?.recipes?.[0].ingredients.eighth}</span>
+              </li>
+            )}
+          </ul>
+          {/* cooking method */}
+          <div className="mb-2">
+            <h3 className="text-lg font-medium mb-2">Cooking method :</h3>
+            <p>{singleChefData?.recipes?.[0].cooking_method}</p>
+          </div>
+          {/* rating and favorite */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Rating
+                className="text-warning"
+                initialRating={singleChefData?.recipes?.[0].ratings}
+                readonly
+                emptySymbol={<FaRegStar></FaRegStar>}
+                fullSymbol={<FaStar></FaStar>}
+              />{" "}
+              <span className="font-semibold">
+                {singleChefData?.recipes?.[0].ratings}
+              </span>
+            </div>
+            <div className="flex items-center gap-2 text-lg">
+              <span className="font-semibold">Add to favorite</span>
+              <FaRegBookmark className="text-warning"></FaRegBookmark>
+            </div>
           </div>
         </div>
+        <figure className="flex-1">
+          {singleChefData && (
+            <img
+              className="rounded-2xl"
+              src={singleChefData?.recipes?.[0].recipe_photo}
+              alt="Album"
+            />
+          )}
+        </figure>
+      </div>
+
+      {/* second recipe */}
+      <div className="card w-[1100px] mx-auto lg:card-side bg-base-100 shadow-xl flex mb-3">
+        <figure className="flex-1">
+          {singleChefData && (
+            <img
+              className="rounded-2xl"
+              src={singleChefData?.recipes?.[1].recipe_photo}
+              alt="Album"
+            />
+          )}
+        </figure>
+        <div className="card-body flex-1">
+          <h2 className="card-title text-2xl font-semibold">
+            {singleChefData?.recipes?.[1].recipe_name}
+          </h2>
+          <h3 className="text-lg font-medium">Ingredients :</h3>
+          <ul>
+            <li className="flex items-center gap-2">
+              <FaBomb></FaBomb>{" "}
+              <span>{singleChefData?.recipes?.[1].ingredients.first}</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <FaBomb></FaBomb>{" "}
+              <span>{singleChefData?.recipes?.[1].ingredients.second}</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <FaBomb></FaBomb>{" "}
+              <span>{singleChefData?.recipes?.[1].ingredients.third}</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <FaBomb></FaBomb>{" "}
+              <span>{singleChefData?.recipes?.[1].ingredients.fourth}</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <FaBomb></FaBomb>{" "}
+              <span>{singleChefData?.recipes?.[1].ingredients.fifth}</span>
+            </li>
+            {singleChefData?.recipes?.[1].ingredients.sixth && (
+              <li className="flex items-center gap-2">
+                <FaBomb></FaBomb>{" "}
+                <span>{singleChefData?.recipes?.[1].ingredients.sixth}</span>
+              </li>
+            )}
+            {singleChefData?.recipes?.[1].ingredients.seventh && (
+              <li className="flex items-center gap-2">
+                <FaBomb></FaBomb>{" "}
+                <span>{singleChefData?.recipes?.[1].ingredients.seventh}</span>
+              </li>
+            )}
+            {singleChefData?.recipes?.[1].ingredients.eighth && (
+              <li className="flex items-center gap-2">
+                <FaBomb></FaBomb>{" "}
+                <span>{singleChefData?.recipes?.[1].ingredients.eighth}</span>
+              </li>
+            )}
+          </ul>
+
+          {/* cooking method */}
+          <div className="mb-2">
+            <h3 className="text-lg font-medium mb-2">Cooking method :</h3>
+            <p>{singleChefData?.recipes?.[1].cooking_method}</p>
+          </div>
+          {/* rating and favorite */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Rating
+                className="text-warning"
+                initialRating={singleChefData?.recipes?.[1].ratings}
+                readonly
+                emptySymbol={<FaRegStar></FaRegStar>}
+                fullSymbol={<FaStar></FaStar>}
+              />{" "}
+              <span className="font-semibold">
+                {singleChefData?.recipes?.[1].ratings}
+              </span>
+            </div>
+            <div className="flex items-center gap-2 text-lg">
+              <span className="font-semibold">Add to favorite</span>
+              <FaRegBookmark className="text-warning"></FaRegBookmark>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* third recipe */}
+      <div className="card w-[1100px] mx-auto lg:card-side bg-base-100 shadow-xl flex mb-8">
+        <div className="card-body flex-1">
+          <h2 className="card-title text-2xl font-semibold">
+            {singleChefData?.recipes?.[2].recipe_name}
+          </h2>
+          <h3 className="text-lg font-medium">Ingredients :</h3>
+          <ul>
+            <li className="flex items-center gap-2">
+              <FaBomb></FaBomb>{" "}
+              <span>{singleChefData?.recipes?.[2].ingredients.first}</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <FaBomb></FaBomb>{" "}
+              <span>{singleChefData?.recipes?.[2].ingredients.second}</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <FaBomb></FaBomb>{" "}
+              <span>{singleChefData?.recipes?.[2].ingredients.third}</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <FaBomb></FaBomb>{" "}
+              <span>{singleChefData?.recipes?.[2].ingredients.fourth}</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <FaBomb></FaBomb>{" "}
+              <span>{singleChefData?.recipes?.[2].ingredients.fifth}</span>
+            </li>
+            {singleChefData?.recipes?.[2].ingredients.sixth && (
+              <li className="flex items-center gap-2">
+                <FaBomb></FaBomb>{" "}
+                <span>{singleChefData?.recipes?.[2].ingredients.sixth}</span>
+              </li>
+            )}
+            {singleChefData?.recipes?.[2].ingredients.seventh && (
+              <li className="flex items-center gap-2">
+                <FaBomb></FaBomb>{" "}
+                <span>{singleChefData?.recipes?.[2].ingredients.seventh}</span>
+              </li>
+            )}
+            {singleChefData?.recipes?.[2].ingredients.eighth && (
+              <li className="flex items-center gap-2">
+                <FaBomb></FaBomb>{" "}
+                <span>{singleChefData?.recipes?.[2].ingredients.eighth}</span>
+              </li>
+            )}
+          </ul>
+
+          {/* cooking method */}
+          <div className="mb-2">
+            <h3 className="text-lg font-medium mb-2">Cooking method :</h3>
+            <p>{singleChefData?.recipes?.[2].cooking_method}</p>
+          </div>
+          {/* rating and favorite */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Rating
+                className="text-warning"
+                initialRating={singleChefData?.recipes?.[2].ratings}
+                readonly
+                emptySymbol={<FaRegStar></FaRegStar>}
+                fullSymbol={<FaStar></FaStar>}
+              />{" "}
+              <span className="font-semibold">
+                {singleChefData?.recipes?.[2].ratings}
+              </span>
+            </div>
+            <div className="flex items-center gap-2 text-lg">
+              <span className="font-semibold">Add to favorite</span>
+              <FaRegBookmark className="text-warning"></FaRegBookmark>
+            </div>
+          </div>
+        </div>
+        <figure className="flex-1">
+          {singleChefData && (
+            <img
+              className="rounded-2xl"
+              src={singleChefData?.recipes?.[2].recipe_photo}
+              alt="Album"
+            />
+          )}
+        </figure>
       </div>
       {/* recipe section end */}
     </div>
