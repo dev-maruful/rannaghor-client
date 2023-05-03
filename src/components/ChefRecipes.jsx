@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import Rating from "react-rating";
 import { useParams } from "react-router-dom";
+import LoadingSpinner from "./LoadingSpinner";
 
 const ChefRecipes = () => {
   const [allChefData, setAllChefData] = useState([]);
@@ -33,6 +34,12 @@ const ChefRecipes = () => {
   }, [allChefData]);
 
   console.log(singleChefData?.recipes?.[0]);
+
+  // const navigation = useNavigation();
+  // console.log(navigation.state);
+  if (!singleChefData || !allChefData) {
+    return <LoadingSpinner></LoadingSpinner>;
+  }
 
   return (
     <div>

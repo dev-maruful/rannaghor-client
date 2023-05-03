@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="navbar bg-[#DAF7A6] text-primary-content flex justify-between">
+    <div className="navbar max-w-7xl mx-auto rounded-b-lg py-5 bg-[#DAF7A6] text-primary-content flex justify-between">
       <Link to="/">
         <button className="btn btn-ghost normal-case text-3xl">
           RannaGhor

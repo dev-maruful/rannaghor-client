@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import ChefData from "./ChefData";
 import FeaturedFoods from "./FeaturedFoods";
 import Partners from "./Partners";
+import LoadingSpinner from "./LoadingSpinner";
 
 const Home = () => {
   const [chefData, setChefData] = useState([]);
@@ -39,6 +40,10 @@ const Home = () => {
         console.error(error);
       });
   }, []);
+
+  if (!chefData && !featuredFoods && !partners) {
+    return <LoadingSpinner></LoadingSpinner>;
+  }
 
   return (
     <div>
