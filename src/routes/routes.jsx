@@ -6,6 +6,7 @@ import Register from "../components/Register";
 import ChefRecipes from "../components/ChefRecipes";
 import LoadingSpinner from "../components/LoadingSpinner";
 import ErrorPage from "../components/ErrorPage";
+import Blog from "../components/Blog";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "loader",
         element: <LoadingSpinner></LoadingSpinner>,
+      },
+      {
+        path: "blog",
+        element: <Blog></Blog>,
       },
     ],
   },
