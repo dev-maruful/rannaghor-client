@@ -10,13 +10,30 @@ import {
 import Rating from "react-rating";
 import { useParams } from "react-router-dom";
 import LoadingSpinner from "./LoadingSpinner";
+import { toast } from "react-toastify";
 
 const ChefRecipes = () => {
-  const [favorite, setFavorite] = useState(false);
+  const [favorite1, setFavorite1] = useState(false);
+  const [favorite2, setFavorite2] = useState(false);
+  const [favorite3, setFavorite3] = useState(false);
+
   const [allChefData, setAllChefData] = useState([]);
   const [singleChefData, setSingleChefData] = useState({});
   const { id } = useParams();
   console.log(id);
+
+  const addToFavorite1 = () => {
+    setFavorite1(true);
+    toast("Recipe added to favorite");
+  };
+  const addToFavorite2 = () => {
+    setFavorite2(true);
+    toast("Recipe added to favorite");
+  };
+  const addToFavorite3 = () => {
+    setFavorite3(true);
+    toast("Recipe added to favorite");
+  };
 
   useEffect(() => {
     fetch("http://localhost:5000/chefdata")
@@ -180,10 +197,9 @@ const ChefRecipes = () => {
             </div>
             <div className="flex items-center gap-2 text-lg">
               <span className="font-semibold">Add to favorite</span>
-              <FaRegBookmark
-                onClick={() => setFavorite(true)}
-                className="text-warning cursor-pointer"
-              ></FaRegBookmark>
+              <button onClick={addToFavorite1} disabled={favorite1 && true}>
+                <FaRegBookmark className="text-warning cursor-pointer"></FaRegBookmark>
+              </button>
             </div>
           </div>
         </div>
@@ -278,10 +294,9 @@ const ChefRecipes = () => {
             </div>
             <div className="flex items-center gap-2 text-lg">
               <span className="font-semibold">Add to favorite</span>
-              <FaRegBookmark
-                onClick={() => setFavorite(true)}
-                className="text-warning cursor-pointer"
-              ></FaRegBookmark>
+              <button onClick={addToFavorite2} disabled={favorite2 && true}>
+                <FaRegBookmark className="text-warning cursor-pointer"></FaRegBookmark>
+              </button>
             </div>
           </div>
         </div>
@@ -358,10 +373,9 @@ const ChefRecipes = () => {
             </div>
             <div className="flex items-center gap-2 text-lg">
               <span className="font-semibold">Add to favorite</span>
-              <FaRegBookmark
-                onClick={() => setFavorite(true)}
-                className="text-warning cursor-pointer"
-              ></FaRegBookmark>
+              <button onClick={addToFavorite3} disabled={favorite3 && true}>
+                <FaRegBookmark className="text-warning cursor-pointer"></FaRegBookmark>
+              </button>
             </div>
           </div>
         </div>
