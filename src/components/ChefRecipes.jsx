@@ -12,6 +12,7 @@ import { useParams } from "react-router-dom";
 import LoadingSpinner from "./LoadingSpinner";
 
 const ChefRecipes = () => {
+  const [favorite, setFavorite] = useState(false);
   const [allChefData, setAllChefData] = useState([]);
   const [singleChefData, setSingleChefData] = useState({});
   const { id } = useParams();
@@ -54,7 +55,13 @@ const ChefRecipes = () => {
       <div className="flex justify-center">
         <div className="card w-[1050px] flex card-side bg-base-100 shadow-xl mb-28">
           <figure className="flex-1">
-            {singleChefData && <img src={singleChefData.chef_picture} alt="" />}
+            {singleChefData && (
+              <img
+                className="rounded-2xl"
+                src={singleChefData.chef_picture}
+                alt=""
+              />
+            )}
           </figure>
           <div className="card-body flex-1">
             {singleChefData && (
@@ -173,7 +180,10 @@ const ChefRecipes = () => {
             </div>
             <div className="flex items-center gap-2 text-lg">
               <span className="font-semibold">Add to favorite</span>
-              <FaRegBookmark className="text-warning"></FaRegBookmark>
+              <FaRegBookmark
+                onClick={() => setFavorite(true)}
+                className="text-warning cursor-pointer"
+              ></FaRegBookmark>
             </div>
           </div>
         </div>
@@ -203,6 +213,8 @@ const ChefRecipes = () => {
           <h2 className="card-title text-2xl font-semibold">
             {singleChefData?.recipes?.[1].recipe_name}
           </h2>
+
+          {/* ingredients */}
           <h3 className="text-lg font-medium">Ingredients :</h3>
           <ul>
             <li className="flex items-center gap-2">
@@ -266,7 +278,10 @@ const ChefRecipes = () => {
             </div>
             <div className="flex items-center gap-2 text-lg">
               <span className="font-semibold">Add to favorite</span>
-              <FaRegBookmark className="text-warning"></FaRegBookmark>
+              <FaRegBookmark
+                onClick={() => setFavorite(true)}
+                className="text-warning cursor-pointer"
+              ></FaRegBookmark>
             </div>
           </div>
         </div>
@@ -278,6 +293,8 @@ const ChefRecipes = () => {
           <h2 className="card-title text-2xl font-semibold">
             {singleChefData?.recipes?.[2].recipe_name}
           </h2>
+
+          {/* ingredients */}
           <h3 className="text-lg font-medium">Ingredients :</h3>
           <ul>
             <li className="flex items-center gap-2">
@@ -341,7 +358,10 @@ const ChefRecipes = () => {
             </div>
             <div className="flex items-center gap-2 text-lg">
               <span className="font-semibold">Add to favorite</span>
-              <FaRegBookmark className="text-warning"></FaRegBookmark>
+              <FaRegBookmark
+                onClick={() => setFavorite(true)}
+                className="text-warning cursor-pointer"
+              ></FaRegBookmark>
             </div>
           </div>
         </div>

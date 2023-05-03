@@ -7,7 +7,7 @@ const Partners = ({ partners }) => {
       <h2 className="text-center text-4xl font-extrabold mb-10">
         Our Partners
       </h2>
-      <div className="max-w-7xl mx-auto grid grid-cols-5 gap-5">
+      <div className="max-w-7xl mx-5 md:mx-auto grid grid-cols-2 md:grid-cols-5 gap-5">
         {partners?.map((partner) => (
           <SinglePartner key={partner.id} partner={partner}></SinglePartner>
         ))}

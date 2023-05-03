@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <div>
       <div className="hero min-h-screen">
-        <div className="hero-content flex">
+        <div className="hero-content flex flex-col md:flex-row">
           <div className="flex-1 w-full">
             <h1 className="text-5xl font-bold">
               Your One-Stop Destination for Recipe Inspiration!

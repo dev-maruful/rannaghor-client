@@ -4,7 +4,7 @@ const SingleFood = ({ singleFood }) => {
   const { id, food_picture, food_name } = singleFood;
 
   return (
-    <div className="card card-compact w-96 border-b-4 border-error">
+    <div className="card card-compact md:w-96 border-b-4 border-error mx-5 md:mx-0">
       <figure className="px-10 pt-10">
         <img className="rounded-full" src={food_picture} alt="" />
       </figure>

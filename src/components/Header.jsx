@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="navbar max-w-7xl mx-auto rounded-b-lg py-5 bg-[#DAF7A6] text-primary-content flex justify-between">
+    <div className="navbar max-w-7xl md:mx-auto rounded-b-lg py-5 bg-[#DAF7A6] text-primary-content flex flex-col md:flex-row justify-between">
       <Link to="/">
         <button className="btn btn-ghost normal-case text-3xl">
           RannaGhor
@@ -16,11 +16,9 @@ const Header = () => {
         <Link to="/blog" className="btn btn-ghost normal-case text-xl">
           Blog
         </Link>
-        <button className="btn btn-outline btn-error">
-          <Link to="/login" className="normal-case text-xl">
-            Login
-          </Link>
-        </button>
+        <Link to="/login" className="btn btn-ghost normal-case text-xl">
+          Login
+        </Link>
       </div>
     </div>
   );

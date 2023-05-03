@@ -13,7 +13,7 @@ const SingleChef = ({ singleChefData }) => {
   } = singleChefData;
 
   return (
-    <div className="card card-compact w-96 bg-base-100 shadow-xl">
+    <div className="card card-compact md:w-96 bg-base-100 shadow-xl mx-5 md:mx-0">
       <figure>
         <img src={chef_picture} alt="" />
       </figure>
