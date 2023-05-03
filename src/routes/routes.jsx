@@ -4,13 +4,14 @@ import Home from "../components/Home";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import ChefRecipes from "../components/ChefRecipes";
-import SingleChef from "../components/SingleChef";
 import LoadingSpinner from "../components/LoadingSpinner";
+import ErrorPage from "../components/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
