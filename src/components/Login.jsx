@@ -4,7 +4,7 @@ import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
   const [error, setError] = useState("");
-  const { login, loginWithGoogle } = useContext(AuthContext);
+  const { login, loginWithGoogle, loginWithGithub } = useContext(AuthContext);
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
@@ -30,6 +30,19 @@ const Login = () => {
 
   const googleLogin = () => {
     loginWithGoogle()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        setError("");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        setError(error.code);
+      });
+  };
+
+  const githubLogin = () => {
+    loginWithGithub()
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
@@ -109,6 +122,7 @@ const Login = () => {
             </div>
             <div className="text-center">
               <button
+                onClick={githubLogin}
                 className="inline-flex items-center gap-2 rounded border-2 border-[#171515] bg-[#171515] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-transparent hover:text-[#171515] focus:outline-none focus:ring active:opacity-75"
                 href="/github"
                 target="_blank"
