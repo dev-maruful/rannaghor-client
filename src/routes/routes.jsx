@@ -7,6 +7,7 @@ import ChefRecipes from "../components/ChefRecipes";
 import LoadingSpinner from "../components/LoadingSpinner";
 import ErrorPage from "../components/ErrorPage";
 import Blog from "../components/Blog";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/chefrecipes/:id",
-        element: <ChefRecipes></ChefRecipes>,
+        element: (
+          <PrivateRoute>
+            <ChefRecipes></ChefRecipes>
+          </PrivateRoute>
+        ),
       },
       {
         path: "loader",

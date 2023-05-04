@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Register = () => {
   const [error, setError] = useState("");
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -33,6 +34,7 @@ const Register = () => {
         const currentUser = result.user;
         console.log(currentUser);
         form.reset();
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -104,7 +106,7 @@ const Register = () => {
                 </div>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-primary">Register</button>
               </div>
             </form>
           </div>
