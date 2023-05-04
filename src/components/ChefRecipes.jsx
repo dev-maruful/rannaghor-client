@@ -11,6 +11,7 @@ import Rating from "react-rating";
 import { useParams } from "react-router-dom";
 import LoadingSpinner from "./LoadingSpinner";
 import { toast } from "react-toastify";
+import LazyLoad from "react-lazy-load";
 
 const ChefRecipes = () => {
   const [favorite1, setFavorite1] = useState(false);
@@ -73,11 +74,20 @@ const ChefRecipes = () => {
         <div className="card w-[1050px] flex card-side bg-base-100 shadow-xl mb-28">
           <figure className="flex-1">
             {singleChefData && (
-              <img
-                className="rounded-2xl"
-                src={singleChefData.chef_picture}
-                alt=""
-              />
+              <LazyLoad
+                height={280}
+                width={400}
+                threshold={0.95}
+                onContentVisible={() => {
+                  console.log("loaded!");
+                }}
+              >
+                <img
+                  className="rounded-2xl"
+                  src={singleChefData.chef_picture}
+                  alt=""
+                />
+              </LazyLoad>
             )}
           </figure>
           <div className="card-body flex-1">

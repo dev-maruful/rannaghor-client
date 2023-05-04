@@ -1,5 +1,6 @@
 import React from "react";
 import { FaArrowRight, FaBullseye } from "react-icons/fa";
+import LazyLoad from "react-lazy-load";
 import { Link } from "react-router-dom";
 
 const SingleChef = ({ singleChefData }) => {
@@ -15,7 +16,16 @@ const SingleChef = ({ singleChefData }) => {
   return (
     <div className="card card-compact md:w-96 bg-base-100 shadow-xl mx-5 md:mx-0">
       <figure>
-        <img src={chef_picture} alt="" />
+        <LazyLoad
+          height={290}
+          width={400}
+          threshold={0.95}
+          onContentVisible={() => {
+            console.log("loaded!");
+          }}
+        >
+          <img src={chef_picture} alt="" />
+        </LazyLoad>
       </figure>
       <div className="card-body">
         <h2 className="card-title text-2xl font-bold">{chef_name}</h2>
