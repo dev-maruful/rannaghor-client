@@ -3,6 +3,13 @@ import Lottie from "lottie-react";
 import blog from "../assets/87979-work-hard.json";
 
 const Blog = () => {
+  // const ref = React.createRef();
+  // const options = {
+  //   orientation: "landscape",
+  //   unit: "in",
+  //   format: [4, 2],
+  // };
+
   return (
     <div className="max-w-7xl mx-auto my-10 flex items-center gap-5">
       <div className="flex-1">
@@ -13,7 +20,7 @@ const Blog = () => {
             components.
           </div>
           <div className="collapse-content text-lg">
-            <p>
+            <div>
               uncontrolled components and controlled components are two
               different approaches to handling user input and state management.
               <br />
@@ -61,7 +68,7 @@ const Blog = () => {
                   easily accessed and manipulated from outside the component.
                 </li>
               </ul>
-            </p>
+            </div>
           </div>
         </div>
         <div className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box mb-5">
@@ -70,7 +77,7 @@ const Blog = () => {
             How to validate React props using PropTypes?
           </div>
           <div className="collapse-content text-lg">
-            <p>
+            <div>
               <strong>
                 {" "}
                 Here's are the steps how we can use PropTypes to validate React
@@ -89,7 +96,7 @@ const Blog = () => {
                   types.
                 </li>
               </ul>
-            </p>
+            </div>
           </div>
         </div>
         <div className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box mb-5">
@@ -98,7 +105,7 @@ const Blog = () => {
             Tell us the difference between node js and express js.
           </div>
           <div className="collapse-content text-lg">
-            <p>
+            <div>
               Node.js is a JavaScript runtime built on the V8 JavaScript engine,
               while Express.js is a minimal and flexible Node.js web application
               framework. Here are some differences between Node.js and
@@ -158,7 +165,7 @@ const Blog = () => {
                   making it a more specialized and focused framework.
                 </li>
               </ul>
-            </p>
+            </div>
           </div>
         </div>
         <div className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box mb-5">
@@ -167,7 +174,7 @@ const Blog = () => {
             What is a custom hook, and why will you create a custom hook?
           </div>
           <div className="collapse-content text-lg">
-            <p>
+            <div>
               In React, a custom hook is a function that allows us to reuse
               stateful logic across multiple components. Custom hooks are a
               powerful feature of React, as they enable us to create reusable
@@ -196,7 +203,7 @@ const Blog = () => {
                   easier to read.
                 </li>
               </ul>
-            </p>
+            </div>
           </div>
         </div>
       </div>

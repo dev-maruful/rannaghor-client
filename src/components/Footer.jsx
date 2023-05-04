@@ -5,9 +5,9 @@ const Footer = () => {
   return (
     <footer className="footer p-10 bg-neutral text-neutral-content">
       <div>
-        <img className="w-28" src="/public/logo_2.png" alt="" />
+        <img className="w-28" src="/logo_2.png" alt="" />
         <p className="text-base">
-          RannaGhor Foods Ltd.
+          Copyright &copy; RannaGhor Foods Ltd.
           <br />
           Providing reliable recipes since 1992
         </p>
@@ -15,13 +15,13 @@ const Footer = () => {
       <div>
         <span className="footer-title">Social</span>
         <div className="grid grid-flow-col gap-4 text-3xl">
-          <a>
+          <a className="cursor-pointer">
             <FaTwitter></FaTwitter>
           </a>
-          <a>
+          <a className="cursor-pointer">
             <FaYoutube></FaYoutube>
           </a>
-          <a>
+          <a className="cursor-pointer">
             <FaFacebookF></FaFacebookF>
           </a>
         </div>

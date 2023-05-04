@@ -4,8 +4,8 @@ import { AuthContext } from "../providers/AuthProvider";
 
 const Register = () => {
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const { createUser } = useContext(AuthContext);
-  const navigate = useNavigate();
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -34,7 +34,7 @@ const Register = () => {
         const currentUser = result.user;
         console.log(currentUser);
         form.reset();
-        navigate("/");
+        setSuccess("Registration successful, Welcome to RannaGhor");
       })
       .catch((error) => {
         console.log(error);
@@ -101,9 +101,16 @@ const Register = () => {
                     </Link>
                   </button>
                 </label>
-                <div>
-                  <p className="text-error">{error}</p>
-                </div>
+                {error && (
+                  <div>
+                    <p className="text-error">{error}</p>
+                  </div>
+                )}
+                {success && (
+                  <div>
+                    <p className="text-success">{success}</p>
+                  </div>
+                )}
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Register</button>

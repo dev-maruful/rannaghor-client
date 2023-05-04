@@ -16,14 +16,7 @@ const SingleChef = ({ singleChefData }) => {
   return (
     <div className="card card-compact md:w-96 bg-base-100 shadow-xl mx-5 md:mx-0">
       <figure>
-        <LazyLoad
-          height={290}
-          width={400}
-          threshold={0.95}
-          onContentVisible={() => {
-            console.log("loaded!");
-          }}
-        >
+        <LazyLoad height={290} threshold={0.95} onContentVisible={() => {}}>
           <img src={chef_picture} alt="" />
         </LazyLoad>
       </figure>

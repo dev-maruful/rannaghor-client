@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <div className="navbar max-w-7xl md:mx-auto rounded-b-lg py-5 bg-[#DAF7A6] text-primary-content flex flex-col md:flex-row justify-between">
       <div className="flex flex-col md:flex-row">
-        <img className="w-16" src="/public/logo.png" alt="" />
+        <img className="w-16" src="/logo.png" alt="" />
         <Link to="/">
           <button className="btn btn-ghost normal-case text-3xl font-extrabold">
             RannaGhor
@@ -61,9 +61,22 @@ const Header = () => {
           </button>
         )}
         {photoURL && (
-          <div className="avatar">
+          <div
+            className="avatar tooltip tooltip-bottom"
+            data-tip={user?.displayName}
+          >
             <div className="w-12 rounded-full">
               <img src={photoURL} />
+            </div>
+          </div>
+        )}
+        {user && !photoURL && (
+          <div
+            className="avatar tooltip tooltip-bottom"
+            data-tip={user?.displayName}
+          >
+            <div className="w-12 rounded-full">
+              <img src="https://img.freepik.com/free-icon/user_318-552176.jpg?size=626&ext=jpg&ga=GA1.1.857116354.1678803730&semt=sph" />
             </div>
           </div>
         )}

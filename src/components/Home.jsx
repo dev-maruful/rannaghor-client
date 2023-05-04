@@ -11,7 +11,7 @@ const Home = () => {
   const [partners, setPartners] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/chefdata")
+    fetch("https://assignment-10-server-tawsif-adnan.vercel.app/chefdata")
       .then((res) => res.json())
       .then((data) => {
         setChefData(data);
@@ -22,7 +22,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/featuredfoods")
+    fetch("https://assignment-10-server-tawsif-adnan.vercel.app/featuredfoods")
       .then((res) => res.json())
       .then((data) => setFeaturedFoods(data))
       .catch((error) => {
@@ -31,7 +31,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/partners")
+    fetch("https://assignment-10-server-tawsif-adnan.vercel.app/partners")
       .then((res) => res.json())
       .then((data) => {
         setPartners(data);

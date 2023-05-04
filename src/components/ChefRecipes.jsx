@@ -21,7 +21,6 @@ const ChefRecipes = () => {
   const [allChefData, setAllChefData] = useState([]);
   const [singleChefData, setSingleChefData] = useState({});
   const { id } = useParams();
-  console.log(id);
 
   const addToFavorite1 = () => {
     setFavorite1(true);
@@ -37,7 +36,7 @@ const ChefRecipes = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/chefdata")
+    fetch("https://assignment-10-server-tawsif-adnan.vercel.app/chefdata")
       .then((res) => res.json())
       .then((data) => setAllChefData(data))
       .catch((error) => {
@@ -52,10 +51,6 @@ const ChefRecipes = () => {
     setSingleChefData(singleChef);
   }, [allChefData]);
 
-  console.log(singleChefData?.recipes?.[0]);
-
-  // const navigation = useNavigation();
-  // console.log(navigation.state);
   if (!singleChefData || !allChefData) {
     return <LoadingSpinner></LoadingSpinner>;
   }
@@ -78,9 +73,7 @@ const ChefRecipes = () => {
                 height={280}
                 width={400}
                 threshold={0.95}
-                onContentVisible={() => {
-                  console.log("loaded!");
-                }}
+                onContentVisible={() => {}}
               >
                 <img
                   className="rounded-2xl"
@@ -208,7 +201,9 @@ const ChefRecipes = () => {
             <div className="flex items-center gap-2 text-lg">
               <span className="font-semibold">Add to favorite</span>
               <button onClick={addToFavorite1} disabled={favorite1 && true}>
-                <FaRegBookmark className="text-warning cursor-pointer"></FaRegBookmark>
+                <FaRegBookmark
+                  className={`text-warning ${!favorite1 && "cursor-pointer"}`}
+                ></FaRegBookmark>
               </button>
             </div>
           </div>
@@ -305,7 +300,9 @@ const ChefRecipes = () => {
             <div className="flex items-center gap-2 text-lg">
               <span className="font-semibold">Add to favorite</span>
               <button onClick={addToFavorite2} disabled={favorite2 && true}>
-                <FaRegBookmark className="text-warning cursor-pointer"></FaRegBookmark>
+                <FaRegBookmark
+                  className={`text-warning ${!favorite2 && "cursor-pointer"}`}
+                ></FaRegBookmark>
               </button>
             </div>
           </div>
@@ -384,7 +381,9 @@ const ChefRecipes = () => {
             <div className="flex items-center gap-2 text-lg">
               <span className="font-semibold">Add to favorite</span>
               <button onClick={addToFavorite3} disabled={favorite3 && true}>
-                <FaRegBookmark className="text-warning cursor-pointer"></FaRegBookmark>
+                <FaRegBookmark
+                  className={`text-warning ${!favorite3 && "cursor-pointer"}`}
+                ></FaRegBookmark>
               </button>
             </div>
           </div>
