@@ -20,8 +20,8 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
-        form.reset();
         navigate(from, { replace: true });
+        form.reset();
       })
       .catch((error) => {
         setError(error.code);
